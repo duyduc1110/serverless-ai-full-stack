@@ -1,12 +1,12 @@
 $(document).ready(function() {
   
-   $('#generate').prop('disabled', true);
+   $('#next-to-audience').prop('disabled', true);
   
-   $('form').on('input', function(){
-      if($('#brand').val() && $('.audience').val()){
-         $('#generate').prop('disabled', false);
+   $('#brand-page form').on('input', function(){
+      if($('#brand').val()){
+         $('#next-to-audience').prop('disabled', false);
       }else{
-         $('#generate').prop('disabled', true);
+         $('#next-to-audience').prop('disabled', true);
       }
    });
   
@@ -20,15 +20,27 @@ $(document).ready(function() {
       $('#audience-container').append(audienceGroup);
    });
    
-   $('form').submit(function(e){
+   $('.remove-audience').click(function(e) {
       e.preventDefault();
-      
-      const brand = $('#brand').val();
-      const audience = $('.audience').map(function() { return $(this).val(); }).get();
-      
-      $.post('/generate', {brand, audience}, function(data){
-         const images = data.images.map(image => `<img src="data:image/jpeg;base64,${image}"/>`).join('');
-         $('#image-container').html(images);
-      });
+      $(this).closest('.audience-group').remove();
+   });
+   
+   $('#next-to-audience').click(function(e){
+     e.preventDefault();
+     $('#brand-page').hide();
+     $('#audience-page').show();
+   });
+   
+   $('#next-to-image').click(function(e){
+     e.preventDefault();
+     const brand = $('#brand').val();
+     const audience = $('.audience').map(function() { return $(this).val(); }).get();
+     
+     $.post('/generate', {brand, audience}, function(data){
+       const images = data.images.map(image => `<img src="data:image/jpeg;base64,${image}"/>`).join('');
+       $('#image-container').html(images);
+       $('#audience-page').hide();
+       $('#image-page').show();
+     });
    });
 });
