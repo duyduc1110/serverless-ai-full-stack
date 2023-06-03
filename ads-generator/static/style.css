@@ -1,29 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
+/* Use a Roboto font for the web page */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
+/* Style the container div with some padding and margin */
 #container {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
+/* Style the h1 element with a larger font size and weight */
 h1 {
-   font-size: 36px;
+   font-size: 48px;
    font-weight: bold;
    margin-bottom: 20px;
 }
 
+/* Style the p element with a smaller font size and line height */
 p {
-   font-size: 18px;
-   line-height: 1.5;
+   font-size: 16px;
+   line-height: 1.2;
    margin-bottom: 40px;
 }
 
+/* Style the form elements with some margin and border */
 .form-group {
    margin-bottom: 40px;
 }
@@ -43,6 +48,13 @@ input[type=text] {
    border-bottom :2px solid #007bff ;
 }
 
+/* Add some focus effect to the input elements */
+input[type=text]:focus {
+   outline: none;
+   border-bottom-color: #2196f3;
+}
+
+/* Style the audience group elements with some flexbox and alignment */
 .audience-group{
     display : flex ;
     align-items : center ;
@@ -53,6 +65,7 @@ input[type=text] {
     width : calc(100% -30px) ;
 }
 
+/* Style the remove button with some color and hover effect */
 .audience-group button{
     width :30px ;
     height :30px ;
@@ -64,6 +77,11 @@ input[type=text] {
     margin-left :10px ;
 }
 
+.audience-group button:hover {
+   opacity: .8;
+}
+
+/* Style the add button with some color and hover effect */
 #add-audience{
     width :30px ;
     height :30px ;
@@ -74,6 +92,11 @@ input[type=text] {
     cursor:pointer ;
 }
 
+#add-audience:hover {
+   opacity: .8;
+}
+
+/* Style the next buttons with some color and hover effect */
 button[type=button]{
    background-color:#007bff ;
    color:white ;
@@ -87,8 +110,41 @@ button[type=button]:hover{
    opacity:.8
 }
 
+/* Style the image elements with some width and height */
 #image-container img{
-   max-width:100%;
-   height:auto;
+   width:300px;
+   height:300px;
    margin-bottom:20px;
 }
+
+/* Style the user label element with a bold font weight */
+.user-label {
+  font-weight: bold;
+}
+
+/* Style the loader element with a circle shape and an animation */
+.loader {
+    /* Make the loader a circle */
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    /* Position the loader in the center of the page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Apply the animation to the loader */
+    animation: spin 2s linear infinite;
+  }
+
+  /* Define the animation frames */
+  @keyframes spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }

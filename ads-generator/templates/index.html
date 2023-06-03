@@ -10,43 +10,34 @@
 </head>
 <body>
   <div id="container">
+    <h1>Image Generator</h1>
+    <p>Enter a brand/product description and one or more audience descriptions to generate images.</p>
+    <!-- Add a div element with the class loader -->
+    
     <div id="brand-page">
-      <h1>Image Generator</h1>
-      <p>Enter a brand/product description to generate images.</p>
-      <form method="POST" action="/generate">
-        <div class="form-group">
-          <label for="brand">Brand/Product Description:</label><br>
-          <input id="brand" type="text" name="brand"><br><br>
-        </div>
-        <button id="next-to-audience" type="button">Next</button>
-      </form>
+      <div class="form-group">
+        <label for="brand">Brand/Product:</label>
+        <input type="text" id="brand" name="brand" placeholder="input text">
+      </div>
+      <button type="button" id="next-to-audience">Next</button>
     </div>
-
     <div id="audience-page" style="display: none;">
-      <h1>Image Generator</h1>
-      <p>Enter audience descriptions to generate images.</p>
-      <form method="POST" action="/generate">
-        <div class="form-group">
-          <label>Audience Descriptions:</label><br>
-          <div id="audience-container">
-            <div class="audience-group">
-              <label>User 1:</label><br>
-              <input class="audience" type="text" name="audience[]" placeholder="input text">
-              <button class="remove-audience" type="button"><i class="fa fa-trash"></i></button><br>
-            </div>
-          </div>
-          <button id="add-audience" type="button"><i class="fa fa-plus"></i></button><br><br>
+      <div id="audience-container">
+        <div class="audience-group">
+          <label for="audience">User 1:</label><br>
+          <input type="text" class="audience" name="audience[]" placeholder="input text">
+          <button type="button" class="remove-audience"><i class="fa fa-trash"></i></button><br>
         </div>
-        <button id="next-to-image" type="button">Next</button>
-      </form>
+      </div>
+      <button type="button" id="add-audience"><i class="fa fa-plus"></i></button>
+      <button type="button" id="next-to-image">Next</button>
     </div>
-
+    <div class="loader" style="display: none;"></div>
     <div id="image-page" style="display: none;">
-      <h1>Image Generator</h1>
-      <p>Generated images:</p>
       <div id="image-container"></div>
     </div>
-
   </div>
+  <!-- Add a script tag to link to the script.js file -->
+  <script src="script.js"></script>
 </body>
 </html>
